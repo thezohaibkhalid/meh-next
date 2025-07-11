@@ -21,7 +21,7 @@ export default function Footer() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/email/subscribe`,
+        `${DB_URL}/email/subscribe`,
         {
           method: "POST",
           headers: {

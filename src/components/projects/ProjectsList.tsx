@@ -1,14 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ProjectsListProps, GetCacheKeyParams, Project } from "@/types/global";
-
+import Image from "next/image";
+import { ProjectsListProps, Project } from "@/types/global";
 import { usePathname, useRouter } from "next/navigation";
-
-const getCacheKey = (category: string, isFeatured: boolean): string =>
-  `projects_${category}_${isFeatured}`;
-
-const CACHE_DURATION = 5 * 60 * 60 * 1000;
 
 export default function ProjectsList({
   limit,
@@ -26,20 +21,6 @@ export default function ProjectsList({
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const cacheKey = getCacheKey(selectedCategory, isFeatured);
-        const cachedData = localStorage.getItem(cacheKey);
-        const now = new Date().getTime();
-
-        // Uncomment caching if you want
-        // if (cachedData) {
-        //   const { data, timestamp } = JSON.parse(cachedData);
-        //   if (now - timestamp < CACHE_DURATION) {
-        //     setProjects(data);
-        //     setVisible(Array(data.length).fill(false));
-        //     return;
-        //   }
-        // }
-
         const url = new URL(`${DB_URL}/projects`);
         if (selectedCategory !== "All") {
           url.searchParams.set("category", selectedCategory);
@@ -52,20 +33,9 @@ export default function ProjectsList({
         if (res.data.success && Array.isArray(res.data.data)) {
           setProjects(res.data.data);
           setVisible(Array(res.data.data.length).fill(false));
-          localStorage.setItem(
-            cacheKey,
-            JSON.stringify({ data: res.data.data, timestamp: now })
-          );
         }
       } catch (error) {
         console.error("Error fetching projects:", error);
-        const cacheKey = getCacheKey(selectedCategory, isFeatured);
-        const cachedData = localStorage.getItem(cacheKey);
-        if (cachedData) {
-          const { data } = JSON.parse(cachedData);
-          setProjects(data);
-          setVisible(Array(data.length).fill(false));
-        }
       }
     };
 
@@ -88,11 +58,7 @@ export default function ProjectsList({
   };
 
   // Navigate to project detail page
-  interface HandleClick {
-    (projectId: string): void;
-  }
-
-  const handleClick: HandleClick = (projectId) => {
+  const handleClick = (projectId: string) => {
     router.push(`/projects/${projectId}`);
   };
 
@@ -101,12 +67,13 @@ export default function ProjectsList({
       threshold: 0.1,
     });
 
-    refs.current.forEach((ref) => {
+    const currentRefs = refs.current;
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      refs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -131,12 +98,14 @@ export default function ProjectsList({
             <div className="relative w-full h-0 pb-[109.09%] sm:pb-[94.8%] md:pb-[50%] md-lg:pb-[64.26%] lg:pb-[64.26%]">
               <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-95">
                 <div className="h-full w-full">
-                  <img
+                  <Image
                     src={project.coverImg}
                     alt={project.title}
-                    className="w-full h-full object-contain"
-                    loading="lazy"
-                    style={{ objectFit: "cover" }}
+                    fill  
+                    className="object-cover"  
+                    quality={75}  
+                    priority={index === 0}  
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"  
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/2 to-transparent">

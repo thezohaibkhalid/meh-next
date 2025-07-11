@@ -5,10 +5,10 @@ export type ProjectsListProps = {
   isFeatured: boolean;
 };
 
-export interface GetCacheKeyParams {
-    category: string;
-    isFeatured: boolean;
-}
+// export interface GetCacheKeyParams {
+//     category: string;
+//     isFeatured: boolean;
+// }
 
 
 export interface Project {

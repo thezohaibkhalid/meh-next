@@ -9,28 +9,27 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import "./CarouselComponentCss.css";
 import { slidesData } from "@/types/SlidesData";
+import "./CarouselComponentCss.css";
 const CarouselComponent = () => {
- 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isUnfilling, setIsUnfilling] = useState(false);
-  const filledTime = 2000;
-  const unfillTime = 500;
+  const filledTime = 2000; // 7 seconds for filling
+  const unfillTime = 500; // 0.5 second for unfill
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    let timeout: ReturnType<typeof setTimeout>;
+    let timeout: NodeJS.Timeout;
 
     if (!isUnfilling) {
       interval = setInterval(() => {
-        setProgress((prev) => {
-          if (prev >= 100) {
+        setProgress((prevProgress) => {
+          if (prevProgress >= 100) {
             clearInterval(interval);
             return 100;
           }
-          return prev + 100 / (filledTime / 100);
+          return prevProgress + 100 / (filledTime / 100);
         });
       }, 100);
     }
@@ -40,7 +39,7 @@ const CarouselComponent = () => {
       timeout = setTimeout(() => {
         setProgress(0);
         setIsUnfilling(false);
-        setCurrentSlide((prev) => (prev + 1) % slidesData.length);
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % slidesData.length);
       }, unfillTime);
     }
 
@@ -50,11 +49,7 @@ const CarouselComponent = () => {
     };
   }, [progress, isUnfilling]);
 
-  interface HandleBarClick {
-    (index: number): void;
-  }
-
-  const handleBarClick: HandleBarClick = (index) => {
+  const handleBarClick = (index: number): void => {
     setCurrentSlide(index);
     setProgress(0);
     setIsUnfilling(false);
@@ -69,7 +64,7 @@ const CarouselComponent = () => {
   };
 
   return (
-    <section className="relative h-[90vh] 2xl:h-[100vh] overflow-hidden bg-black/30">
+    <section className="relative h-screen  2xl:h-[100vh] overflow-hidden bg-black/30">
       <div className="carousel-container h-full w-full relative">
         {slidesData.map((slide, index) => (
           <div
@@ -98,7 +93,8 @@ const CarouselComponent = () => {
                 </h1>
               </div>
 
-              <div className="hidden md:flex flex-col space-y-2 right-[-150px] bottom-132 z-30">
+              {/* Icons */}
+              <div className="hidden md:flex lg:flex xl:flex 2xl:flex flex-col space-y-2 right-[-150px] bottom-132 z-30">
                 {[
                   {
                     label: "Instagram",
@@ -137,9 +133,9 @@ const CarouselComponent = () => {
                     href: "https://www.linkedin.com/in/mbhstudioo/",
                     color: "hover:bg-[#0a66c2]",
                   },
-                ].map((item, index) => (
+                ].map((item, idx) => (
                   <a
-                    key={index}
+                    key={idx}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -165,11 +161,19 @@ const CarouselComponent = () => {
                     >
                       {item.label}
                     </span>
+
                     <div className="relative">
                       <span className="block group-hover:scale-90 transition-transform duration-300">
                         {item.icon}
                       </span>
-                      <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-white/30 transition-all duration-300" />
+                      <div
+                        className="
+                          absolute inset-0 rounded-full
+                          border-2 border-transparent
+                          group-hover:border-white/30
+                          transition-all duration-300
+                        "
+                      />
                     </div>
                   </a>
                 ))}
@@ -178,9 +182,11 @@ const CarouselComponent = () => {
           </div>
         ))}
 
+        {/* Responsive tabs - show different amounts based on screen size */}
         <div className="z-10 absolute bottom-5 w-full flex flex-row justify-around items-center">
+          {/* Small screens: show 2 tabs, cycling through all 4 */}
           <div className="flex sm:hidden w-full justify-around px-4">
-            {getVisibleSlides().map((slide, index) => {
+            {getVisibleSlides().map((slide) => {
               const actualIndex = slidesData.indexOf(slide);
               return (
                 <div
@@ -197,7 +203,7 @@ const CarouselComponent = () => {
                         ? `width ${unfillTime}ms linear`
                         : "width 0.5s linear",
                     }}
-                  />
+                  ></div>
                   <div className="label text-white text-sm font-medium -translate-y-8 text-center">
                     {slide.barheading}
                   </div>
@@ -206,47 +212,55 @@ const CarouselComponent = () => {
             })}
           </div>
 
+          {/* Medium screens: show first 3 tabs */}
           <div className="hidden sm:flex lg:hidden w-full justify-around">
-            {slidesData.slice(0, 3).map((_, index) => (
+            {slidesData.slice(0, 3).map((slide, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="loading-bar"
-                onClick={() => handleBarClick(index)}
+                onClick={() => handleBarClick(slidesData.indexOf(slide))}
               >
                 <div
                   className="progress"
                   style={{
-                    width: index === currentSlide ? `${progress}%` : "0%",
+                    width:
+                      slidesData.indexOf(slide) === currentSlide
+                        ? `${progress}%`
+                        : "0%",
                     transition: isUnfilling
                       ? `width ${unfillTime}ms linear`
                       : "width 0.5s linear",
                   }}
-                />
+                ></div>
                 <div className="label text-white md:text-xs lg:text-sm -translate-y-8">
-                  {slidesData[index].barheading}
+                  {slide.barheading}
                 </div>
               </div>
             ))}
           </div>
 
+          {/* Large screens: show all tabs */}
           <div className="hidden lg:flex w-full justify-around">
-            {slidesData.map((_, index) => (
+            {slidesData.map((slide, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="loading-bar"
-                onClick={() => handleBarClick(index)}
+                onClick={() => handleBarClick(slidesData.indexOf(slide))}
               >
                 <div
                   className="progress"
                   style={{
-                    width: index === currentSlide ? `${progress}%` : "0%",
+                    width:
+                      slidesData.indexOf(slide) === currentSlide
+                        ? `${progress}%`
+                        : "0%",
                     transition: isUnfilling
                       ? `width ${unfillTime}ms linear`
                       : "width 0.5s linear",
                   }}
-                />
+                ></div>
                 <div className="label text-white lg:text-sm xl:text-base 2xl:text-xl -translate-y-8">
-                  {slidesData[index].barheading}
+                  {slide.barheading}
                 </div>
               </div>
             ))}
