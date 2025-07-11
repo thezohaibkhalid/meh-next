@@ -160,24 +160,24 @@ export default function ProjectsList({
       </div>
       <div className="h-24 w-full flex justify-center items-center pt-10">
         {pathname === "/projects" ? (
-          <Link href="/" passHref legacyBehavior>
-            <a className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
+          <Link href="/" passHref>
+            <span className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
               <div className="relative z-8 tracking-[7px] leading-tight text-[14px] border-gray-300">
                 HOMEPAGE
               </div>
               <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
               <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
-            </a>
+            </span>
           </Link>
         ) : (
-          <Link href="/projects" passHref legacyBehavior>
-            <a className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
+          <Link href="/projects" passHref>
+            <span className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
               <div className="relative z-8 tracking-[7px] leading-tight text-[13px] border-gray-300">
                 VIEW PROJECT
               </div>
               <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
               <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
-            </a>
+            </span>
           </Link>
         )}
       </div>

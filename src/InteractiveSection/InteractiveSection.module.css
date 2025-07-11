@@ -1,0 +1,15 @@
+.headinganimation {
+  transition: transform 0.5s ease;
+}
+
+.hovered .headinganimation {
+  transform: translateY(-20px);
+}
+.textanimation {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hovered .textanimation {
+  opacity: 1;
+}

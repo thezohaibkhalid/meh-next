@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito_Sans, Playfair_Display } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -34,7 +35,8 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        
+
+        <Footer />
       </body>
     </html>
   );

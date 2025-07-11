@@ -80,24 +80,22 @@ export default function Navbar() {
       <header className="gradient-nav fixed top-0 left-0 w-full z-50">
         <nav className="flex items-center md-lg:h-[95px] py-[15px] lg:h-[95px] h-[93px] px-[2.5%] relative">
           <div className="text-white hidden md:flex md:flex-1 md:justify-start">
-            <Link
-              href="/projects"
-              className="relative inline-block cursor-pointer group"
-            >
-              <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
-                PROJECTS
-              </div>
-              <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left"></div>
+            <Link href="/projects"  >
+              <span className="relative inline-block cursor-pointer group">
+                <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
+                  PROJECTS
+                </div>
+                <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left"></div>
+              </span>
             </Link>
 
-            <Link
-              href="/contact"
-              className="ml-8 relative inline-block cursor-pointer group"
-            >
-              <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
-                CONTACT
-              </div>
-              <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right group-hover:origin-left"></div>
+            <Link href="/contact"  >
+              <span className="ml-8 relative inline-block cursor-pointer group">
+                <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
+                  CONTACT
+                </div>
+                <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right group-hover:origin-left"></div>
+              </span>
             </Link>
           </div>
 
@@ -105,6 +103,7 @@ export default function Navbar() {
             <Link
               href="/"
               className="text-white text-5xl font-extrabold tracking-widest"
+              
             >
               <h1 className="text-5xl font-extrabold text-white tracking-widest">
                 MBH
@@ -129,7 +128,6 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-
       {/* Mobile Dropdown Overlay */}
       <div
         className={`z-50 fixed inset-0 bg-[#b5aba1] text-white flex flex-col transition-transform duration-[1200ms] ease-in-out ${
@@ -163,6 +161,7 @@ export default function Navbar() {
                   key={index}
                   href={link.path}
                   className="text-container relative"
+                   
                 >
                   <div className="absolute w-full h-full flex text text-white lg:text-4xl md-lg:text-4xl text-[28px] select-none">
                     {link.name}

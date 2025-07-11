@@ -7,7 +7,11 @@ import Loader from "../Loader";
 import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function FeaturedProjects({ limit = undefined }: { limit?: number }) {
+export default function FeaturedProjects({
+  limit = undefined,
+}: {
+  limit?: number;
+}) {
   const [loading, setLoading] = useState(true);
   const [minHeight, setMinHeight] = useState("calc(100vh - 300px)");
   const pathname = usePathname();
@@ -52,7 +56,6 @@ export default function FeaturedProjects({ limit = undefined }: { limit?: number
       >
         {pathname === "/projects" ? "Projects" : "Featured Projects"}
       </animated.h1>
-
       <div className="flex justify-between my-5 border-b-2 py-10">
         <div className="flex align-center flex-wrap gap-4">
           {filteredCategories.map((category) => (
@@ -75,7 +78,6 @@ export default function FeaturedProjects({ limit = undefined }: { limit?: number
           </h3>
         </div>
       </div>
-
       {loading ? (
         <div className="flex items-center justify-center min-h-[60vh]">
           <Loader />
