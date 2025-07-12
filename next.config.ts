@@ -1,13 +1,20 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com"],
     remotePatterns: [
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
-        pathname: "/**", // Allows all paths under this domain
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.prod.website-files.com",
+        port: "",
+        pathname: "/63c9df6b055c091e80c5d708/**",
       },
     ],
+    domains: ['cdn.prod.website-files.com'],
   },
 };
 
