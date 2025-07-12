@@ -1,14 +1,21 @@
 import SingleBlogPage from "@/components/Blogs/SingleBlogPage";
 import Navbar from "@/components/navbar/Navbar";
+import { NextPage } from "next";
 import React from "react";
 
-const Page = ({ params }: { params: { id: string } }) => {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+const page: NextPage<PageProps> = async ({ params }) => {
+  const { id } = await params; 
+
   return (
     <div>
       <Navbar />
-      <SingleBlogPage params={params} />
+      <SingleBlogPage params={{ id }} />
     </div>
   );
 };
 
-export default Page;
+export default page;

@@ -1,17 +1,33 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ProjectsListProps, Project } from "@/types/global";
-import { usePathname, useRouter } from "next/navigation";
 
-export default function ProjectsList({
+interface Project {
+  _id: string;
+  title: string;
+  location: string;
+  coverImg: string;
+}
+
+interface ShowProjectProps {
+  limit?: number;
+  selectedCategory?: string;
+  isFeatured?: boolean;
+}
+
+const getCacheKey = (category: string | undefined, isFeatured?: boolean) =>
+  `projects_${category}_${isFeatured}`;
+// const CACHE_DURATION = 5 * 60 * 60 * 1000;
+
+const ProjectsList: React.FC<ShowProjectProps> = ({
   limit,
-  selectedCategory,
-  isFeatured,
-}: ProjectsListProps) {
+  selectedCategory = "All",
+  isFeatured = false,
+}) => {
   const DB_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
   const [projects, setProjects] = useState<Project[]>([]);
   const [visible, setVisible] = useState<boolean[]>([]);
   const refs = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -21,35 +37,60 @@ export default function ProjectsList({
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        const cacheKey = getCacheKey(selectedCategory, isFeatured);
+        // const cachedData = localStorage.getItem(cacheKey);
+        const now = new Date().getTime();
+
+        // Skip if valid cache exists
+        // if (cachedData) {
+        //   const { data, timestamp } = JSON.parse(cachedData);
+        //   if (now - timestamp < CACHE_DURATION) {
+        //     setProjects(data);
+        //     setVisible(Array(data.length).fill(false));
+        //     return;
+        //   }
+        // }
+
         const url = new URL(`${DB_URL}/projects`);
-        if (selectedCategory !== "All") {
+        if (selectedCategory && selectedCategory !== "All") {
           url.searchParams.set("category", selectedCategory);
         }
         url.searchParams.set("isFeatured", isFeatured ? "true" : "false");
 
-        const response = await fetch(url.toString());
-        const res = { data: await response.json() };
+        const res = await fetch(url.toString());
+        const data = await res.json();
 
-        if (res.data.success && Array.isArray(res.data.data)) {
-          setProjects(res.data.data);
-          setVisible(Array(res.data.data.length).fill(false));
+        if (data.success && Array.isArray(data.data)) {
+          setProjects(data.data);
+          setVisible(Array(data.data.length).fill(false));
+
+          const cacheData = {
+            data: data.data,
+            timestamp: now,
+          };
+          localStorage.setItem(cacheKey, JSON.stringify(cacheData));
         }
       } catch (error) {
         console.error("Error fetching projects:", error);
+        const cacheKey = getCacheKey(selectedCategory, isFeatured);
+        const cachedData = localStorage.getItem(cacheKey);
+        if (cachedData) {
+          const { data } = JSON.parse(cachedData);
+          setProjects(data);
+          setVisible(Array(data.length).fill(false));
+        }
       }
     };
 
     fetchProjects();
   }, [selectedCategory, isFeatured, DB_URL]);
 
-  // Intersection Observer to reveal projects
-  const handleObserver: IntersectionObserverCallback = (entries) => {
+  const handleObserver = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const target = entry.target as HTMLElement;
-        const index = parseInt(target.getAttribute("data-index") || "0", 10);
-        setVisible((prevVisible: boolean[]) => {
-          const newVisible = [...prevVisible];
+        const index = parseInt(entry.target.getAttribute("data-index") || "0");
+        setVisible((prev) => {
+          const newVisible = [...prev];
           newVisible[index] = true;
           return newVisible;
         });
@@ -57,7 +98,6 @@ export default function ProjectsList({
     });
   };
 
-  // Navigate to project detail page
   const handleClick = (projectId: string) => {
     router.push(`/projects/${projectId}`);
   };
@@ -68,6 +108,7 @@ export default function ProjectsList({
     });
 
     const currentRefs = refs.current;
+    
     currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -81,19 +122,19 @@ export default function ProjectsList({
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md-lg:grid-cols-2 lg:grid-cols-2 gap-3 cursor-pointer">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md-lg:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3 cursor-pointer">
         {projects.slice(0, limit).map((project, index) => (
           <a
             key={index}
             onClick={() => handleClick(project._id)}
-            rel="noopener noreferrer"
-            className={`block group relative rounded-lg transition-all duration-500 ease-in-out ${
-              visible[index] ? "animate-fadeInScale" : "opacity-0 scale-70"
-            }`}
             ref={(el) => {
               refs.current[index] = el;
             }}
             data-index={index}
+            rel="noopener noreferrer"
+            className={`block group relative rounded-lg transition-all duration-500 ease-in-out ${
+              visible[index] ? "animate-fadeInScale" : "opacity-0 scale-70"
+            }`}
           >
             <div className="relative w-full h-0 pb-[109.09%] sm:pb-[94.8%] md:pb-[50%] md-lg:pb-[64.26%] lg:pb-[64.26%]">
               <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-95">
@@ -101,11 +142,9 @@ export default function ProjectsList({
                   <Image
                     src={project.coverImg}
                     alt={project.title}
-                    fill  
-                    className="object-cover"  
-                    quality={75}  
-                    priority={index === 0}  
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"  
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/2 to-transparent">
@@ -127,29 +166,34 @@ export default function ProjectsList({
           </a>
         ))}
       </div>
+
       <div className="h-24 w-full flex justify-center items-center pt-10">
         {pathname === "/projects" ? (
-          <Link href="/" passHref>
-            <span className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
-              <div className="relative z-8 tracking-[7px] leading-tight text-[14px] border-gray-300">
-                HOMEPAGE
-              </div>
-              <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
-              <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
-            </span>
+          <Link
+            href="/"
+            className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12"
+          >
+            <div className="relative z-8 tracking-[7px] leading-tight text-[14px] border-gray-300">
+              HOMEPAGE
+            </div>
+            <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
+            <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
           </Link>
         ) : (
-          <Link href="/projects" passHref>
-            <span className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12">
-              <div className="relative z-8 tracking-[7px] leading-tight text-[13px] border-gray-300">
-                VIEW PROJECT
-              </div>
-              <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
-              <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
-            </span>
+          <Link
+            href="/projects"
+            className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-12"
+          >
+            <div className="relative z-8 tracking-[7px] leading-tight text-[13px] border-gray-300">
+              VIEW PROJECT
+            </div>
+            <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-gray-300 transform scale-x-100"></div>
+            <div className="absolute right-[2px] top-[23px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
           </Link>
         )}
       </div>
     </>
   );
-}
+};
+
+export default ProjectsList;

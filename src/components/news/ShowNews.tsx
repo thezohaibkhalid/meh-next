@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
@@ -36,15 +36,17 @@ export default function ShowNews({ blogs = [], limit = null }: ShowNewsProps) {
       }
     });
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver(handleObserver, {
       threshold: 0.1,
     });
-    refs.current.forEach((ref) => ref && observer.observe(ref));
-    return () => refs.current.forEach((ref) => ref && observer.unobserve(ref));
+    const currentRefs = refs.current;
+    currentRefs.forEach((ref) => ref && observer.observe(ref));
+    return () => currentRefs.forEach((ref) => ref && observer.unobserve(ref));
   }, [blogs]);
-
+  useEffect(() => {
+    setVisible(Array(blogs.length).fill(false));
+  }, [blogs]);
   const displayedBlogs = limit ? blogs.slice(0, limit) : blogs;
 
   return (
@@ -63,7 +65,7 @@ export default function ShowNews({ blogs = [], limit = null }: ShowNewsProps) {
             data-index={index}
           >
             <div className="relative w-full h-0 pb-[96.76%] ">
-              <img
+              <Image
                 src={blog.coverImg}
                 alt={blog.title}
                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-95 absolute inset-0"

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import PrimaryHero from "@/components/common/PrimraryHero";
-
+import Link from "next/link";
 interface BlogSection {
   type: "heading" | "paragraph";
   text: string;
@@ -60,13 +60,13 @@ export default async function SingleBlogPage({
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="prose lg:prose-xl mx-auto">
-          <a
+          <Link
             href="/blogs"
             className="mb-8 inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <FaArrowLeft className="mr-2 h-5 w-5" />
             Back to All Articles
-          </a>
+          </Link>
           {/* 
           <div className="flex items-center mb-12 border-t pt-8">
             <div className="flex-1">

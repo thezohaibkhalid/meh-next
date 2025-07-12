@@ -12,7 +12,6 @@ export default function ContactForm() {
 
   const validateForm = (form: HTMLFormElement) => {
     const name = (form.elements.namedItem("name") as HTMLInputElement)?.value.trim() || "";
-    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value.trim() || "";
     const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value.trim() || "";
     const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value.trim() || "";
 
@@ -71,7 +70,7 @@ export default function ContactForm() {
       } else {
         setFormStatus({ success: false, error: true });
       }
-    } catch (error) {
+    } catch {
       setFormStatus({ success: false, error: true });
     } finally {
       setLoading(false);
@@ -82,10 +81,10 @@ export default function ContactForm() {
     <div className="w-full bg-[#F4F2F1] px-[2.5%] py-16">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="mb-4 lg:text-[72px] md-lg:text-[52px] md:text-[45px] text-[42px]">
-          Let's Connect
+          Lets Connect
         </h1>
         <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          Have a project in mind or a question? Fill out the form, and let's
+          Have a project in mind or a question? Fill out the form, and lets
           talk.
         </p>
       </div>
@@ -152,7 +151,7 @@ export default function ContactForm() {
 
         {formStatus.success && (
           <div className="text-green-600 mt-6 text-center text-lg">
-            Thank you! We'll get back to you soon.
+            Thank you! We&apos;ll get back to you soon.
           </div>
         )}
         {formStatus.error && (

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-
 const AboutSection = () => {
   return (
     <section className="pt-20 mb-10 mt-10">
@@ -31,12 +30,12 @@ const AboutSection = () => {
         </div>
 
         <div className="flex justify-end">
-          <img
+          <Image
             src="/about_1_mobile.jpg"
             alt="About MBH Studioo Mobile"
             className="block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
           />
-          <img
+          <Image
             src="/about_1_PC.jpg"
             alt="About MBH Studioo PC"
             className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"

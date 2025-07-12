@@ -1,9 +1,9 @@
 import PrimaryHero from "@/components/common/PrimraryHero";
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar/Navbar";
 import AboutCards from "@/components/about/AboutCards";
 import Logo from "@/components/Logos/AdSection";
+import Image from "next/image";
 export default function AboutPage() {
   return (
     <div>
@@ -40,12 +40,12 @@ export default function AboutPage() {
           </div>
 
           <div className="flex justify-end">
-            <img
+            <Image
               src="/about_1_mobile.jpg"
               alt="About MBH Studioo Mobile"
               className="block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
             />
-            <img
+            <Image
               src="/about_1_PC.jpg"
               alt="About MBH Studioo PC"
               className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"

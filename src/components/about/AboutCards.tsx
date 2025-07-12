@@ -52,7 +52,6 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   );
 };
 
-// Team Component
 const AboutCards = () => {
   const teamMembers = [
     {
