@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 import PrimaryHero from "@/components/common/PrimraryHero";
 import Link from "next/link";
+
 interface BlogSection {
   type: "heading" | "paragraph";
   text: string;
@@ -16,23 +17,36 @@ interface Blog {
   content: BlogSection[];
 }
 
-const DB_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
 export default async function SingleBlogPage({
   params,
 }: {
   params: { id: string };
 }) {
+  const DB_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+  if (!DB_URL) {
+    console.error("Error: NEXT_PUBLIC_BACKEND_URL is not defined.");
+    return notFound();
+  }
+
   let blog: Blog | null = null;
 
   try {
-    const res = await fetch(`${DB_URL}/blogs/${params.id}`, {});
+    const res = await fetch(`${DB_URL}/blogs/${params.id}`, {
+      cache: "no-store", // Ensure fresh data for dynamic pages
+    });
 
-    if (!res.ok) return notFound();
+    if (!res.ok) {
+      console.error(`Fetch failed with status: ${res.status}`);
+      return notFound();
+    }
 
     const data = await res.json();
 
-    if (!data.success || !data.data) return notFound();
+    if (!data.success || !data.data) {
+      console.error("Invalid response data:", data);
+      return notFound();
+    }
 
     blog = data.data;
   } catch (error) {
@@ -67,14 +81,6 @@ export default async function SingleBlogPage({
             <FaArrowLeft className="mr-2 h-5 w-5" />
             Back to All Articles
           </Link>
-          {/* 
-          <div className="flex items-center mb-12 border-t pt-8">
-            <div className="flex-1">
-              <p className="text-lg font-medium text-gray-900">{blog.author}</p>
-              <p className="text-gray-500">{formattedDate}</p>
-            </div>
-          </div> */}
-
           <div className="space-y-8">
             {blog.content.map((section, index) => (
               <div
