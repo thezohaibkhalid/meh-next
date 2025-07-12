@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito_Sans, Playfair_Display } from "next/font/google";
@@ -32,8 +33,8 @@ export default function RootLayout({
       <body
         className={`${nunitoSans.variable} ${playfairDisplay.variable} antialiased`}
       >
+        <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );
