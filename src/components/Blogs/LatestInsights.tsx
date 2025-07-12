@@ -11,7 +11,7 @@ type Blog = {
 const DB_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 async function getBlogs(): Promise<Blog[]> {
-  const res = await fetch(`${DB_URL}/blogs`, { cache: "no-store" });
+  const res = await fetch(`${DB_URL}/blogs`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch blogs");
@@ -24,7 +24,7 @@ async function getBlogs(): Promise<Blog[]> {
 export default async function LatestInsights() {
   const blogs = await getBlogs();
 
-   return (
+  return (
     <section className="pt-20 pb-10 mb-20 px-[2.5%]">
       <div className="2xl:mx-auto mx-6 pb-10">
         <h2 className="text-5xl font-normal mb-12 mt-4">Latest Blogs</h2>

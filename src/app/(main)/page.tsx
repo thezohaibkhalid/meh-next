@@ -4,7 +4,7 @@ import FeaturedProjects from "@/components/projects/FeaturesProjects";
 import AdSection from "@/components/Logos/AdSection";
 import NumbersSection from "@/components/NumbersSection";
 import InteractiveSection from "@/InteractiveSection/InteractiveSection";
-import LatestInsights from "@/components/LatestInsights/LatestInsights";
+import LatestInsights from "@/components/Blogs/LatestInsights";
 import ScheduleCallSection from "@/components/ScheduleCallSection";
 export default function page() {
   return (
