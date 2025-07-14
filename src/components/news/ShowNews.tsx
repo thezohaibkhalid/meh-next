@@ -66,6 +66,8 @@ export default function ShowNews({ blogs = [], limit = null }: ShowNewsProps) {
           >
             <div className="relative w-full h-0 pb-[96.76%] ">
               <Image
+                width={500}
+                height={400}
                 src={blog.coverImg}
                 alt={blog.title}
                 className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-95 absolute inset-0"

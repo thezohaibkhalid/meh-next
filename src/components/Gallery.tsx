@@ -74,6 +74,8 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
           >
             <div className="relative w-full h-0 pb-[109.09%] sm:pb-[94.8%] md:pb-[50%] md-lg:pb-[64.26%] lg:pb-[64.26%]">
               <Image
+                width={500}
+                height={400}
                 src={image}
                 alt={`Gallery Image ${index + 1}`}
                 loading="lazy"

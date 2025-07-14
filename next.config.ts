@@ -1,21 +1,25 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: import('next').NextConfig = {
+     allowedDevOrigins: ['192.168.100.44'],
+
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.prod.website-files.com",
-        port: "",
-        pathname: "/63c9df6b055c091e80c5d708/**",
-      },
-    ],
-    domains: ['cdn.prod.website-files.com'],
+    domains: ['res.cloudinary.com'],
   },
 };
 
 export default nextConfig;
+
+// const nextConfig = {
+//    allowedDevOrigins: ['192.168.100.44'],
+//   images: {
+//     remotePatterns: [
+//       {
+//         protocol: "https",
+//         hostname: "*",
+//       },
+//     ],
+   
+//   },
+// };
+
+// export default nextConfig;

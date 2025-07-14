@@ -28,17 +28,20 @@ const AboutSection = () => {
             <div className="absolute right-[2px] top-[21px] bottom-0 h-[1px] w-full bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-right group-hover:origin-left"></div>
           </Link>
         </div>
-
         <div className="flex justify-end">
           <Image
             src="/about_1_mobile.jpg"
             alt="About MBH Studioo Mobile"
-            className="block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
+            className="block lg:hidden w-full h-auto object-cover transition-transform duration-1000 hover:scale-95 transform-origin-center"
+            width={500}
+            height={400}
           />
           <Image
             src="/about_1_PC.jpg"
             alt="About MBH Studioo PC"
-            className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
+            className="hidden lg:block w-full h-auto object-cover transition-transform duration-1000 hover:scale-95 transform-origin-center"
+            width={500}
+            height={400}
           />
         </div>
       </div>

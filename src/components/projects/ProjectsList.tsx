@@ -108,7 +108,7 @@ const ProjectsList: React.FC<ShowProjectProps> = ({
     });
 
     const currentRefs = refs.current;
-    
+
     currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -140,6 +140,8 @@ const ProjectsList: React.FC<ShowProjectProps> = ({
               <div className="absolute inset-0 overflow-hidden transition-transform duration-500 ease-in-out group-hover:scale-95">
                 <div className="h-full w-full">
                   <Image
+                    width={500}
+                    height={400}
                     src={project.coverImg}
                     alt={project.title}
                     className="w-full h-full object-contain"
