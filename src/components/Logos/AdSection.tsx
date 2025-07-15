@@ -27,15 +27,15 @@ const ads = [
 
 const AdSection = () => {
   const infiniteScroll = useSpring({
-    from: { transform: "translateX(0%)" },
-    to: { transform: "translateX(-50%)" },
+    from: { transform: "translateX(-50%)" },
+    to: { transform: "translateX(0%)" },
     config: { duration: 25000, easing: (t) => t },
     loop: true,
   });
 
   const marqueeScroll = useSpring({
-    from: { transform: "translateX(-50%)" },
-    to: { transform: "translateX(0%)" },
+    from: { transform: "translateX(0%)" },
+    to: { transform: "translateX(-50%)" },
     config: { duration: 20000, easing: (t) => t },
     loop: true,
   });

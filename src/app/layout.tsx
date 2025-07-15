@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito_Sans, Playfair_Display } from "next/font/google";
 import Footer from "@/components/Footer";
-
+import { ScrollToTop } from "@/utils/ScrollToTop";
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
   variable: "--font-nunito-sans",
@@ -32,6 +32,7 @@ export default function RootLayout({
       <body
         className={`${nunitoSans.variable} ${playfairDisplay.variable} antialiased`}
       >
+        <ScrollToTop />
         {children}
         <Footer />
       </body>

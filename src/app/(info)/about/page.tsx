@@ -12,13 +12,13 @@ export default function AboutPage() {
         subtitle="Insights & Vision"
         imageUrl="https://live.staticflickr.com/65535/54649151003_1eed26325c_c.jpg"
       />
-      <section className="pt-20 mb-10 mt-10">
+      <section className="lg:pt-20 xl:pt-20 md:pt-2 sm:pt-2 mb-10 mt-10">
         <div className="w-full px-6 grid grid-cols-1 lg:grid-cols-[2fr_2.5fr] xl:grid-cols-[2fr_2.5fr] gap-16">
           <div className="h-full py-10">
             <h2 className="text-5xl mb-10 lg:mb-0 xl:mb-0 2xl:mb-0 text-left">
               About
             </h2>
-            <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10 mb-4 text-justify lg:pr-10 md:pr-8 pr-0">
+            <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10  mb-4 text-justify lg:pr-10 md:pr-8 pr-0">
               MBH is vastly experienced at working across sectors – Residential,
               Hospitality, and Commercial, and across disciplines – Architecture
               and Interior Design. We offer a multifaceted, entirely bespoke

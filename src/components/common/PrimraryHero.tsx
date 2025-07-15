@@ -30,7 +30,7 @@ const PrimaryHero: React.FC<PrimaryHeroProps> = ({
             </h2>
           </div>
           <h1 className="mb-6 text-3xl leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            {title || "Default Title"}
+            {title}
           </h1>
         </div>
       </div>

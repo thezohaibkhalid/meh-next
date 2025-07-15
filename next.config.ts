@@ -3,7 +3,7 @@ const nextConfig: import('next').NextConfig = {
      allowedDevOrigins: ['192.168.100.44'],
 
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com', 'cdn.prod.website-files.com'],
   },
 };
 

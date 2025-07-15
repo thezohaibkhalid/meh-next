@@ -20,7 +20,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         <div className="relative h-[400px] group">
           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-95">
             <Image
-              src={imageUrl || "/placeholder.svg"}
+              src={imageUrl }
               alt={`${name}'s profile image`}
               fill
               className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-95"

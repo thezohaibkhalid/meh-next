@@ -20,16 +20,13 @@ export default function Footer() {
     e.preventDefault();
 
     try {
-      const res = await fetch(
-        `${DB_URL}/email/subscribe`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        }
-      );
+      const res = await fetch(`${DB_URL}/email/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
 
       const data = await res.json();
       setMessage(data.message);
@@ -146,7 +143,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-300 opacity-50 mt-8"></div>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center mt-8 text-sm text-gray-500 space-y-4 lg:space-y-0">
+      <div className="flex flex-col md:flex-row lg:flex-row justify-between items-start mt-8 text-sm text-gray-500 space-y-4 lg:space-y-0 sm:flex-start">
         <span className="relative hover:text-gray-700 transition duration-300 after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-gray-700 after:transition-all hover:after:w-full">
           &copy; 2025 MBH Studioo
         </span>
@@ -155,12 +152,42 @@ export default function Footer() {
           href="https://bitbuilders.tech/"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative inline-block py-2 px-3 group text-gray-400 hover:text-gray-800 transition-colors duration-300"
+          className="relative inline-block py-2 group text-gray-400 hover:text-gray-800 transition-colors duration-300"
         >
           <span className="relative z-10">
             Website by BitBuilders Tech
             <span className="absolute left-0 bottom-0 h-px w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full" />
           </span>
+
+          {/* Small Preview Above the Link (Hidden on Mobile) */}
+          <div className="hidden sm:block absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible top-[-250px] left-1/2 -translate-x-1/2 w-[90vw] max-w-[400px] aspect-video transform scale-95 overflow-hidden rounded-xl shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:scale-100 group-hover:delay-300">
+            <div className="absolute inset-0 flex flex-col bg-gray-900 backdrop-blur-lg">
+              {/* Fake browser top bar */}
+              <div className="flex items-center gap-2 p-2 bg-gray-800/90">
+                <div className="h-2 w-2 rounded-full bg-red-500" />
+                <div className="h-2 w-2 rounded-full bg-yellow-500" />
+                <div className="h-2 w-2 rounded-full bg-green-500" />
+              </div>
+
+              {/* Website Preview + Overlay */}
+              <div className="relative flex-1 bg-gradient-to-br from-gray-900 via-blue-900/40 to-purple-900/30">
+                <iframe
+                  src="https://bitbuilders.tech/"
+                  className="absolute inset-0 w-full h-full opacity-80 transition-opacity duration-300 group-hover:opacity-90"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent flex items-center justify-center">
+                  <span className="text-xl font-bold text-white tracking-wide animate-pulse-slow bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                    VISIT
+                    <span className="ml-2 inline-block animate-bounce-right text-lg">
+                      ↗
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </a>
 
         <Link

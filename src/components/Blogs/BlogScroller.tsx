@@ -77,26 +77,24 @@ export default function BlogScroller({ blogs }: { blogs: Blog[] }) {
           <Link
             key={blog._id}
             href={`/blogs/${blog._id}`}
-            className="shrink-0 lg:w-[28vw] xl:w-[28vw] w-[75vw] h-full relative group rounded-lg overflow-hidden"
+            className="shrink-0 min-w-[250px] w-[90vw] sm:w-[65vw] md:w-[55vw] lg:w-[40vw] xl:w-[30vw] relative group aspect-[4/5]"
           >
-            <div className="w-full h-full relative bg-black rounded-lg overflow-hidden transition-transform duration-700 group-hover:scale-95 group-hover:-translate-y-2">
-              <div
-                className="absolute inset-0 bg-cover bg-center z-0"
-                style={{ backgroundImage: `url(${blog.coverImg})` }}
-              />
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-95 group-hover:translate-y-[-10px]"
+              style={{ backgroundImage: `url(${blog.coverImg})` }}
+            ></div>
 
-              <div className="relative z-10 h-full p-6 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/10 to-transparent">
-                <h3 className="font-normal text-2xl text-white mb-2">
-                  {blog.title}
-                </h3>
-                <p className="text-sm text-gray-300">
-                  {new Date(blog.createdAt).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </p>
-              </div>
+            <div className="relative z-10 h-full p-6 rounded-lg flex flex-col justify-end text-left transition-transform duration-700 group-hover:translate-y-[-10px]">
+              <h3 className="font-normal text-2xl mt-4 text-white mb-2">
+                {blog.title}
+              </h3>
+              <p className="text-sm text-gray-300 mb-2">
+                {new Date(blog.createdAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
             </div>
           </Link>
         ))}

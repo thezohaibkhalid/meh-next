@@ -2,6 +2,7 @@ import PrimaryHero from "@/components/common/PrimraryHero";
 import ScheduleCallSection from "@/components/ScheduleCallSection";
 import React from "react";
 import Link from "next/link";
+import Navbar from "@/components/navbar/Navbar";
 const page = () => {
   const services = [
     {
@@ -90,6 +91,7 @@ const page = () => {
         subtitle="EXPERTISE"
         imageUrl="/contact.jpeg"
       />
+      <Navbar />
       <div className="px-[2.6%] py-1">
         <h1 className="mt-[100px] mb-6 text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[72px]">
           Core Services
