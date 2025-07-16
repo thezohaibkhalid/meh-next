@@ -1,6 +1,7 @@
 "use client";
 import { useSpring, animated } from "@react-spring/web";
 import Image from "next/image";
+import Link from "next/link";
 
 const brands = [
   { src: "/brand/ABExports.png", name: "AB Exports" },
@@ -17,81 +18,76 @@ const brands = [
   { src: "/brand/TheBoulevardMall.png", name: "The Boulevard Mall" },
 ];
 
-const ads = [
-  "Transforming Spaces with Timeless Elegance - MBH Studioo",
-  "Innovative Designs for Modern Living - MBH Studioo",
-  "Crafting Architectural Masterpieces - MBH Studioo",
-  "Where Vision Meets Precision - MBH Studioo",
-  "Designing the Future, Today - MBH Studioo",
-];
+const LogoScroller = ({
+  logos,
+  direction = "left",
+  duration = 40000,
+}: {
+  logos: typeof brands;
+  direction?: "left" | "right";
+  duration?: number;
+}) => {
+  const from = direction === "left" ? "0%" : "-50%";
+  const to = direction === "left" ? "-50%" : "0%";
 
-const AdSection = () => {
-  const infiniteScroll = useSpring({
-    from: { transform: "translateX(-50%)" },
-    to: { transform: "translateX(0%)" },
-    config: { duration: 25000, easing: (t) => t },
+  const scrollAnimation = useSpring({
+    from: { transform: `translateX(${from})` },
+    to: { transform: `translateX(${to})` },
+    config: { duration, easing: (t) => t },
     loop: true,
   });
 
-  const marqueeScroll = useSpring({
-    from: { transform: "translateX(0%)" },
-    to: { transform: "translateX(-50%)" },
-    config: { duration: 20000, easing: (t) => t },
-    loop: true,
-  });
   return (
-    <section
-      className="w-full bg-[#F4F2F1] mt-12 pt-10 pb-20 px-4 sm:px-6 md:px-8 lg:px-12"
-      aria-label="MBH Studioo Client Brands and Advertisements"
-    >
-       <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 mb-6 font-serif">
-          Collaborative Excellence
-        </h2>
-        <p className="text-gray-600 text-base sm:text-lg lg:text-xl font-sans">
-          Partnering with industry pioneers to create transformative spaces that
-          inspire and endure.
-        </p>
-      </div>
-
-      <div className="overflow-hidden w-full">
-        <animated.div className="flex gap-8 w-max" style={infiniteScroll}>
-          {[...brands, ...brands].map((brand, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 w-44 h-44 bg-white flex items-center justify-center rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300"
-            >
-              <Image
-                src={brand.src}
-                alt={`${brand.name} logo`}
-                width={140}
-                height={140}
-                className="object-contain"
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </animated.div>
-      </div>
-
-      {/* Marquee Text */}
-      <div className="mt-12 overflow-hidden w-full">
-        <animated.div
-          className="flex whitespace-nowrap w-max"
-          style={marqueeScroll}
-        >
-          {[...ads, ...ads].map((ad, i) => (
-            <span
-              key={i}
-              className="inline-block mx-6 text-lg sm:text-xl lg:text-2xl font-serif text-gray-800"
-            >
-              {ad}
-            </span>
-          ))}
-        </animated.div>
-      </div>
-    </section>
+    <div className="overflow-hidden whitespace-nowrap">
+      <animated.div className="flex gap-8 w-max" style={scrollAnimation}>
+        {[...logos, ...logos].map((logo, index) => (
+          <div
+            key={`${logo.name}-${index}`}
+            className="flex-shrink-0 w-40 h-40 bg-white flex items-center justify-center rounded-2xl shadow-md border border-gray-200"
+          >
+            <Image
+              src={logo.src}
+              alt={`${logo.name} logo`}
+              width={120}
+              height={120}
+              className="object-contain"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </animated.div>
+    </div>
   );
 };
 
-export default AdSection;
+export default function AdSection() {
+  const half = Math.ceil(brands.length / 2);
+  const topRowBrands = brands.slice(0, half);
+  const bottomRowBrands = brands.slice(half);
+
+  return (
+    <section
+      className="w-full bg-[#F4F2F1] mt-16 py-20 sm:py-24 overflow-hidden"
+      aria-label="MBH Studioo Client Brands"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-800 mb-6 font-serif">
+            Collaborative Excellence
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg lg:text-xl font-sans">
+            Partnering with industry pioneers to create transformative spaces
+            that inspire and endure.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative mt-12 py-4 transform -rotate-2 scale-110">
+        <div className="space-y-8">
+          <LogoScroller logos={topRowBrands} direction="left" />
+          <LogoScroller logos={bottomRowBrands} direction="right" />
+        </div>
+      </div>
+    </section>
+  );
+}
