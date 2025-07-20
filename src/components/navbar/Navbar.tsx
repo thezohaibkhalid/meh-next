@@ -80,7 +80,7 @@ export default function Navbar() {
       <header className="gradient-nav fixed top-0 left-0 w-full z-50">
         <nav className="flex items-center md-lg:h-[95px] py-[15px] lg:h-[95px] h-[93px] px-[2.5%] relative">
           <div className="text-white hidden md:flex md:flex-1 md:justify-start">
-            <Link href="/projects"  >
+            <Link href="/projects">
               <span className="relative inline-block cursor-pointer group">
                 <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
                   PROJECTS
@@ -89,7 +89,7 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <Link href="/contact"  >
+            <Link href="/contact">
               <span className="ml-8 relative inline-block cursor-pointer group">
                 <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
                   CONTACT
@@ -103,7 +103,6 @@ export default function Navbar() {
             <Link
               href="/"
               className="text-white text-5xl font-extrabold tracking-widest"
-              
             >
               <h1 className="text-5xl font-extrabold text-white tracking-widest">
                 MBH
@@ -112,9 +111,14 @@ export default function Navbar() {
           </div>
 
           <div className="md-lg:hidden flex-1 flex justify-start">
-            <h1 className="text-4xl font-semibold text-white pb-6 pl-4 tracking-widest">
-              MBH
-            </h1>
+            <Link
+              href="/"
+              className="text-white text-4xl font-semibold tracking-widest"
+            >
+              <h1 className="text-4xl font-semibold text-white pb-6 pl-4 tracking-widest">
+                MBH
+              </h1>
+            </Link>
           </div>
 
           <div
@@ -160,8 +164,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={link.path}
-                  className="text-container relative"
-                   
+                  className="text-container relative  "
                 >
                   <div className="absolute w-full h-full flex text text-white lg:text-4xl md-lg:text-4xl text-[28px] select-none">
                     {link.name}

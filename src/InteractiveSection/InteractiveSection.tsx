@@ -118,7 +118,7 @@ const InteractiveSection = () => {
       >
         <div
           className={`absolute inset-0 z-0 transition-all duration-500 ${
-            isActive ? "bg-black/70" : "backdrop-blur-md bg-black/30"
+            isActive ? "bg-black/40" : "backdrop-blur-xs bg-black/10"
           }`}
         />
 

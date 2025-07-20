@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div>
       <PrimaryHero
-        title="About MBH Studios"
+        title="ABOUT"
         subtitle="Insights & Vision"
         imageUrl="https://live.staticflickr.com/65535/54649151003_1eed26325c_c.jpg"
       />

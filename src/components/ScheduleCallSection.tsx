@@ -27,7 +27,7 @@ export default function ScheduleCallSection() {
               Crafting Spaces That
             </span>
             <br />
-            <span className="text-white/90 font-light italic">
+            <span className="text-white/90 font-light ">
               Inspire & Transform
             </span>
           </h1>
@@ -42,7 +42,7 @@ export default function ScheduleCallSection() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+        {/* <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
           <Link
             href="/contact"
             className="group relative inline-flex items-center overflow-hidden rounded-xl border border-white/20 bg-white/5 px-8 py-5 text-white backdrop-blur-lg transition-all duration-500 hover:bg-white/10 hover:border-white/40 hover:shadow-2xl"
@@ -68,7 +68,7 @@ export default function ScheduleCallSection() {
               Available Mon–Fri: 9AM – 6PM PST
             </span>
           </div>
-        </div>
+        </div> */}
 
         <div className="absolute right-0 top-1/3 -translate-y-1/2 w-48 h-48 bg-white/5 backdrop-blur-sm rounded-full mix-blend-screen opacity-30 animate-float" />
         <div className="absolute left-20 bottom-1/4 w-24 h-24 bg-gradient-to-tr from-white/10 to-transparent backdrop-blur-sm rounded-lg rotate-45 opacity-20" />

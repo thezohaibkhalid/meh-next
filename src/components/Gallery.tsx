@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
+  IoIosCloseCircle,
 } from "react-icons/io";
 import Image from "next/image";
 import Link from "next/link";
@@ -79,7 +80,6 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
                 src={image}
                 alt={`Gallery Image ${index + 1}`}
                 loading="lazy"
-                fill
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-95"
               />
             </div>
@@ -110,14 +110,14 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
                 onClick={showPrev}
                 className="p-3 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm transition-all duration-200 group"
               >
-                <IoIosArrowDropleftCircle className="text-white text-6xl" />
+                <IoIosArrowDropleftCircle className="text-white text-6xl cursor-pointer" />
               </button>
 
               <button
                 onClick={showNext}
                 className="p-3 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-sm transition-all duration-200 group"
               >
-                <IoIosArrowDroprightCircle className="text-white text-6xl" />
+                <IoIosArrowDroprightCircle className="text-white text-6xl cursor-pointer" />
               </button>
             </div>
 
@@ -125,7 +125,7 @@ const Gallery: React.FC<GalleryProps> = ({ images = [] }) => {
               onClick={closeLightbox}
               className="absolute top-4 right-4 p-3 rounded-full bg-black/20 hover:bg-black/50 backdrop-blur-sm transition-all duration-200 group"
             >
-              <IoIosArrowDropleftCircle className="text-white text-6xl" />
+              <IoIosCloseCircle className="text-white text-6xl cursor-pointer" />
             </button>
 
             <div className="absolute top-4 left-4 text-white bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm text-sm font-medium">

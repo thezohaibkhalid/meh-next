@@ -83,7 +83,7 @@ const CarouselComponent = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-transparent">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-black/40 via-transparent to-transparent" />
             </div>
-            <div className="flex justify-between items-center h-full px-10 text-white max-w-[1440px] mx-auto relative z-10">
+            <div className="flex justify-between items-center h-full px-10 text-white max-w-[1700px] mx-auto relative z-10">
               <div className="w-full md:w-[70%] h-auto flex flex-col justify-between space-y-4 items-center">
                 <h1 className="text-[36px] sm:text-[56px] md:text-[48px] lg:text-[56px]">
                   {slide.heading}

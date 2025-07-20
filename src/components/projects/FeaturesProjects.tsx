@@ -54,7 +54,7 @@ const FeaturedProjects: React.FC = ({}) => {
         {pathname === "/projects" ? "Projects" : "Featured Projects"}
       </animated.h1>
 
-      <div className="flex justify-between my-5 border-b-2 py-10">
+      <div className="flex justify-between my-5 border-b-2 border-gray-300 py-10">
         <div className="flex align-center flex-wrap gap-4">
           {filteredCategories.map((category) => (
             <Link
@@ -72,7 +72,7 @@ const FeaturedProjects: React.FC = ({}) => {
           <h3 className="text-sm">
             Request more information
             <br />
-            contact@mbhstudios.com
+            contact@mbhstudioo.com
           </h3>
         </div>
       </div>

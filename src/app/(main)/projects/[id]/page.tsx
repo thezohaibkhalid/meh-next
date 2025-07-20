@@ -226,22 +226,22 @@ const Page = () => {
                   {project.location}
                 </p>
               </div>
-              <div>
+              {/* <div>
                 <p className="uppercase text-[11px] text-gray-500 font-semibold tracking-widest">
                   Project Size
                 </p>
                 <p className="font-semibold text-[22px] lg:text-[32px]">
                   {project.size}
                 </p>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <p className="uppercase text-[11px] text-gray-500 font-semibold tracking-widest">
                   Project Date
                 </p>
                 <p className="font-semibold text-[22px] lg:text-[32px]">
                   {new Date(project.createdAt).toLocaleDateString()}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
 

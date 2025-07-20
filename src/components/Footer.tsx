@@ -53,7 +53,7 @@ export default function Footer() {
         <div className="space-y-4">
           <Link href="/" className="inline-block">
             <h1 className="text-4xl font-semibold text-black tracking-tighter ">
-              MBH
+              MBH STUDIOO
             </h1>
           </Link>
           <p className="text-xs leading-relaxed text-gray-500 max-w-xs">
@@ -91,6 +91,7 @@ export default function Footer() {
               <p>contact@mbhstudioo.com</p>
               <p>+92 303 7074418</p>
               <p>+92 315 8860962</p>
+              <p>+92 (41) 5210923</p>
             </div>
           </div>
         </div>
@@ -132,7 +133,7 @@ export default function Footer() {
 
       <div className="flex flex-col items-center text-center space-y-4 md:flex-row md:justify-between md:text-left md:space-y-0 mt-8 text-sm text-gray-500">
         <span className="cursor-default">© 2025 MBH Studioo</span>
-        <a
+        {/* <a
           href="https://bitbuilders.tech/"
           target="_blank"
           rel="noopener noreferrer"
@@ -140,7 +141,7 @@ export default function Footer() {
         >
           <span>Website by BitBuilders Tech</span>
           <span className="absolute left-0 bottom-0 block h-px w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 group-hover:w-full" />
-        </a>
+        </a> */}
         <Link
           href="/privacy-policy"
           className="group relative text-gray-400 transition hover:text-gray-700"

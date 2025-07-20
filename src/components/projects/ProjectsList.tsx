@@ -122,7 +122,7 @@ const ProjectsList: React.FC<ShowProjectProps> = ({
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md-lg:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3 cursor-pointer min-h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md-lg:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 cursor-pointer min-h-screen">
         {projects.slice(0, limit).map((project, index) => (
           <a
             key={index}
