@@ -38,7 +38,7 @@ const InteractiveSection = () => {
       title: "Landscaping",
       description:
         "Transform outdoor spaces with lush greenery, functional hardscapes, and stunning designs.",
-      image: "/interactive/Landscaping.jpeg",
+      image: "/interactive/Landscaping.webp",
     },
   ];
 

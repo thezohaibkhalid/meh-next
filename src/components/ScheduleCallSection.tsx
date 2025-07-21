@@ -1,15 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { PiGreaterThanThin } from "react-icons/pi";
 
 export default function ScheduleCallSection() {
   return (
     <section
-      className="relative flex flex-col justify-center min-h-screen bg-cover bg-center px-4 md:px-16 lg:px-24 py-24 overflow-hidden"
+      className="relative flex flex-col justify-center min-h-[80vh] bg-cover bg-center px-4 md:px-16 lg:px-24 py-24 overflow-hidden"
       aria-label="Schedule a Call Section"
     >
       <Image
-        src="/interactive/Landscaping.jpeg"
+        src="/crafting-spaces- that-inspire-transform.webp"
         alt="Landscaping background"
         fill
         priority

@@ -17,7 +17,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   return (
     <>
       <div className="text-white overflow-hidden relative pl-5">
-        <div className="relative h-[400px] group">
+        <div className="relative h-[700px] group">
           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-95">
             <Image
               src={imageUrl }
@@ -29,7 +29,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
             {/* <div className="absolute inset-0 bg-black bg-opacity-40"></div> */}
           </div>
-          <div className="absolute bottom-2 left-3 right-0 p-4 flex items-center justify-between">
+          <div className="absolute bottom-6 left-3 right-0 p-4 flex items-center justify-between">
             <div className="flex flex-col gap-3">
               <h3 className="lg:text-[20px] md:text-[17px] text-[14px] font-semibold ml-3">
                 {name}
@@ -55,29 +55,29 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 const AboutCards = () => {
   const teamMembers = [
     {
-      name: "Vytautas Bekshta",
-      position: "Partner",
+      name: "Bilal",
+      position: "Ownwer & Architect",
       bio: "Vytautas is a highly accomplished professional with over two decades of experience in the construction industry. As the former owner of the Bekshta Construction Group, he leveraged his expertise in finance and planning to drive innovation and success.",
       imageUrl:
-        "https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/6441641d4bf4f753fa9a1565_vb.jpg",
+        "/bilal-architect.webp",
       linkedInUrl: "#",
     },
-    {
-      name: "Valerijus Starkovskis",
-      position: "Partner",
-      bio: "Valerijus is a Lithuania-based architect with 30 years of experience undertaking projects in Germany, Spain, France, Monaco, UAE, Kazakhstan, Vietnam, Maldives, Ukraine, and Latvia.",
-      imageUrl:
-        "https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/6441640aa3a4bbd626809b6a_vs.jpg",
-      linkedInUrl: "#",
-    },
-    {
-      name: "Valerijus Starkovskis",
-      position: "Partner",
-      bio: "Valerijus is a Lithuania-based architect with 30 years of experience undertaking projects in Germany, Spain, France, Monaco, UAE, Kazakhstan, Vietnam, Maldives, Ukraine, and Latvia.",
-      imageUrl:
-        "https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/6441640aa3a4bbd626809b6a_vs.jpg",
-      linkedInUrl: "#",
-    },
+    // {
+    //   name: "Valerijus Starkovskis",
+    //   position: "Partner",
+    //   bio: "Valerijus is a Lithuania-based architect with 30 years of experience undertaking projects in Germany, Spain, France, Monaco, UAE, Kazakhstan, Vietnam, Maldives, Ukraine, and Latvia.",
+    //   imageUrl:
+    //     "https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/6441640aa3a4bbd626809b6a_vs.jpg",
+    //   linkedInUrl: "#",
+    // },
+    // {
+    //   name: "Valerijus Starkovskis",
+    //   position: "Partner",
+    //   bio: "Valerijus is a Lithuania-based architect with 30 years of experience undertaking projects in Germany, Spain, France, Monaco, UAE, Kazakhstan, Vietnam, Maldives, Ukraine, and Latvia.",
+    //   imageUrl:
+    //     "https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/6441640aa3a4bbd626809b6a_vs.jpg",
+    //   linkedInUrl: "#",
+    // },
   ];
 
   return (
