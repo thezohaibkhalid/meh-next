@@ -164,7 +164,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   href={link.path}
-                  className="text-container relative  "
+                  className="text-container relative "
                 >
                   <div className="absolute w-full h-full flex text text-white lg:text-4xl md-lg:text-4xl text-[28px] select-none">
                     {link.name}
