@@ -3,7 +3,16 @@ const nextConfig: import('next').NextConfig = {
      allowedDevOrigins: ['192.168.100.44'],
 
   images: {
-    domains: ['res.cloudinary.com', 'cdn.prod.website-files.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.prod.website-files.com',
+      },
+    ],
   },
 };
 

@@ -57,7 +57,7 @@ export default function BlogScroller({ blogs }: { blogs: Blog[] }) {
       {showLeft && (
         <button
           onClick={() => scroll("left")}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white rounded-full w-12 h-12 transition-all duration-300 flex items-center justify-center"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white rounded-full w-12 h-12 transition-all duration-300 flex items-center justify-center cursor-pointer"
           aria-label="Scroll left"
         >
           <FaChevronLeft size={24} />
@@ -67,7 +67,7 @@ export default function BlogScroller({ blogs }: { blogs: Blog[] }) {
       {showRight && (
         <button
           onClick={() => scroll("right")}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white rounded-full w-12 h-12 transition-all duration-300 flex items-center justify-center"
+          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/30 hover:bg-black/50 text-white rounded-full w-12 h-12 transition-all duration-300 flex items-center justify-center cursor-pointer"
           aria-label="Scroll right"
         >
           <FaChevronRight size={24} />
