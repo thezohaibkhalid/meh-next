@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // experimental: {
-  //   allowedDevOrigins: ['http://192.168.100.44:3000'],  
-  // },
+  // This option enables the creation of a standalone folder
+  // which copies only the necessary files for a production deployment.
+  // This is crucial for the optimized Dockerfile.
+  output: 'standalone',
+
   images: {
     remotePatterns: [
       {
@@ -25,6 +27,10 @@ const nextConfig = {
       },
     ],
   },
+
+  // experimental: {
+  //   allowedDevOrigins: ['http://192.168.100.44:3000'],
+  // },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
