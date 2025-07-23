@@ -154,7 +154,7 @@ const Page = () => {
           <h2 className="text-2xl font-semibold mb-4">Project Not Found</h2>
           {/* Fix 2 & 3: Escape single quotes in JSX */}
           <p className="text-sm text-gray-600 mb-6">
-            We couldn't find the project you're looking for. It may have been
+            We couldnt find the project you&#39;re looking for. It may have been
             moved or deleted.
           </p>
           <Link href="/projects">

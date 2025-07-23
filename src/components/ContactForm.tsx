@@ -151,7 +151,7 @@ export default function ContactForm() {
 
         {formStatus.success && (
           <div className="text-green-600 mt-6 text-center text-lg">
-            Thank you! We&apos;ll get back to you soon.
+            Thank you! We&#39;ll get back to you soon.
           </div>
         )}
         {formStatus.error && (
