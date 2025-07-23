@@ -71,17 +71,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className=" text-slate-700">
-      <div className="container mx-auto px-6 pt-16 pb-10 lg:px-8">
+    <footer className=" text-slate-700 ">
+      <div className="container mx-auto px-6 pt-16 pb-10 lg:px-8 ">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <h1 className="text-3xl font-semibold text-slate-900 tracking-tighter">
+              <h1 className="text-3xl font-semibold text-slate-900 ">
                 MBH STUDIOO
               </h1>
             </Link>
             <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
-              MBH Studios is an architecture and interior design firm based in
+              MBH Studioo is an architecture and interior design firm based in
               Faisalabad, offering a full range of services.
             </p>
             <div className="flex space-x-4 pt-2">
@@ -100,13 +100,13 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="space-y-8 text-sm">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+          <div className="space-y-6 text-sm">
+            <h3 className="text-xl  font-thin text-slate-700 tracking-tighter">
               Get in Touch
             </h3>
             <div className="space-y-4">
               <div>
-                <address className="mt-1 text-slate-500 not-italic">
+                <address className="mt-1 text-slate-500  not-italic">
                   Office No.291, Makkah Commercial Market
                   <br />
                   Chak 208 Rd, near Allied Bank, Faisalabad
@@ -122,7 +122,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Subscription Form */}
           <div className="space-y-4">
             <h3 className="text-xl font-thin">Subscribe Now</h3>
             <p className="text-sm text-slate-500">
@@ -164,7 +163,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-200 pt-8">
+        {/* <div className="mt-12 border-t border-slate-200 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
             <span className="text-center sm:text-left">
               © {new Date().getFullYear()} MBH Studioo. All rights reserved.
@@ -184,9 +183,12 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+        </div> */}
+
+        <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
+          <span>© {new Date().getFullYear()} MBH Studioo. All rights reserved.</span>
         </div>
       </div>
     </footer>
   );
-
 }

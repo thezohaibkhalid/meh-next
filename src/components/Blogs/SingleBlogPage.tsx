@@ -79,7 +79,7 @@ export default async function SingleBlogPage({
             className="mb-8 inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
           >
             <FaArrowLeft className="mr-2 h-5 w-5" />
-            Back to All Articles
+            Back to All Blogs
           </Link>
           <div className="space-y-8">
             {blog.content.map((section, index) => (

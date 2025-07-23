@@ -17,10 +17,10 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
   return (
     <>
       <div className="text-white overflow-hidden relative pl-5">
-        <div className="relative h-[700px] group">
+        <div className="relative h-[500px] group">
           <div className="absolute inset-0 bg-cover bg-center transition-transform duration-300 ease-in-out group-hover:scale-95">
             <Image
-              src={imageUrl }
+              src={imageUrl}
               alt={`${name}'s profile image`}
               fill
               className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-95"
@@ -29,12 +29,12 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 
             {/* <div className="absolute inset-0 bg-black bg-opacity-40"></div> */}
           </div>
-          <div className="absolute bottom-6 left-3 right-0 p-4 flex items-center justify-between">
-            <div className="flex flex-col gap-3">
-              <h3 className="lg:text-[20px] md:text-[17px] text-[14px] font-semibold ml-3">
+          <div className="absolute bottom-2 left-2 right-0 p-4 flex items-center justify-between">
+            <div className="flex flex-col gap-2">
+              <h3 className="lg:text-[18px] md:text-[15px] text-[14px] font-semibold ml-3">
                 {name}
               </h3>
-              <p className="lg:text-[19px] md:text-[16px] text-[13px] ml-3">
+              <p className="lg:text-[16px] md:text-[15px] text-[12px] ml-3">
                 {position}
               </p>
             </div>
@@ -42,8 +42,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         </div>
         <div className="p-4 bg-transparent">
           {" "}
-          {/* Set background to transparent */}
-          <p className="lg:text-[18px] md:text-[14px] text-[13px] text-gray-600 mt-2">
+          <p className="lg:text-[18px] md:text-[14px] text-[13px] text-gray-600 mt-2 text-justify">
             {bio}
           </p>
         </div>
@@ -58,8 +57,7 @@ const AboutCards = () => {
       name: "Bilal",
       position: "Ownwer & Architect",
       bio: "Vytautas is a highly accomplished professional with over two decades of experience in the construction industry. As the former owner of the Bekshta Construction Group, he leveraged his expertise in finance and planning to drive innovation and success.",
-      imageUrl:
-        "/bilal-architect.webp",
+      imageUrl: "/bilal-architect.png",
       linkedInUrl: "#",
     },
     // {

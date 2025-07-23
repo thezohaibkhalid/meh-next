@@ -49,32 +49,32 @@ const FeaturedProjects: React.FC = ({}) => {
     >
       <animated.h1
         style={animationProps}
-        className="text-black text-[35px] sm:[42px] md:[42px] md-lg:text-[50px] lg:text-[72px]"
+        className="text-black text-[35px] sm:[42px] md:[42px] md-lg:text-[50px] lg:text-[60px]"
       >
         {pathname === "/projects" ? "Projects" : "Featured Projects"}
       </animated.h1>
 
-      <div className="flex justify-between my-5 border-b-2 border-gray-300 py-10">
-        <div className="flex align-center flex-wrap gap-4">
+      <div className="flex justify-between my-5 border-b-2 border-gray-300 py-6">
+        <div className="flex align-center flex-wrap gap-3">
           {filteredCategories.map((category) => (
             <Link
               key={category}
               href={`/projects?category=${encodeURIComponent(category)}`}
-              className="text-black border cursor-pointer border-[#c3bab1] rounded-full px-3 py-[6px] font-thin font-nunito text-[14px] leading-tight no-underline transition-all flex-shrink-0
-                  hover:bg-[#b5aba1] hover:text-white duration-300 ease-in lg:text-[20px] md:text-[16px]"
+              className="text-black border cursor-pointer border-[#c3bab1] rounded-full px-3 py-[3px] font-thin font-nunito text-[14px] leading-tight no-underline transition-all flex-shrink-0
+                  hover:bg-[#b5aba1] hover:text-white duration-300 ease-in lg:text-[17px] md:text-[15px]"
             >
               {category}
             </Link>
           ))}
         </div>
 
-        <div className="hidden lg:block">
+        {/* <div className="hidden lg:block">
           <h3 className="text-sm">
             Request more information
             <br />
             contact@mbhstudioo.com
           </h3>
-        </div>
+        </div> */}
       </div>
 
       {loading ? (

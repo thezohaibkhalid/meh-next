@@ -100,24 +100,20 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md-lg:flex-1 md-lg:flex md-lg:justify-start">
-            <Link
-              href="/"
-              className="text-white text-5xl font-extrabold tracking-widest"
-            >
-              <h1 className="text-5xl font-extrabold text-white tracking-widest">
-                MBH
-              </h1>
+            <Link href="/" className="text-white font-extrabold">
+              <div className="leading-none">
+                <h1 className="text-5xl tracking-widest">MBH</h1>
+                <p className="text-lg tracking-widest">STUDIOO</p>
+              </div>
             </Link>
           </div>
 
           <div className="md-lg:hidden flex-1 flex justify-start">
-            <Link
-              href="/"
-              className="text-white text-4xl font-semibold tracking-widest"
-            >
-              <h1 className="text-4xl font-semibold text-white pb-6 pl-4 tracking-widest">
-                MBH
-              </h1>
+            <Link href="/" className="text-white font-semibold">
+              <div className="leading-none pb-6 pl-4">
+                <h1 className="text-3xl tracking-widest">MBH</h1>
+                <p className="text-medium tracking-widest">STUDIOO</p>
+              </div>
             </Link>
           </div>
 

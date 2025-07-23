@@ -154,8 +154,8 @@ const Page = () => {
           <h2 className="text-2xl font-semibold mb-4">Project Not Found</h2>
           {/* Fix 2 & 3: Escape single quotes in JSX */}
           <p className="text-sm text-gray-600 mb-6">
-            We couldn&apos;t find the project you&apos;re looking for. It may
-            have been moved or deleted.
+            We couldn't find the project you're looking for. It may have been
+            moved or deleted.
           </p>
           <Link href="/projects">
             <button className="px-6 py-3 bg-yellow-500 text-white rounded-full hover:bg-yellow-600 transition duration-300">
@@ -197,14 +197,14 @@ const Page = () => {
             <div className="my-auto justify-start">
               <div className="mb-6 flex items-center justify-start gap-6">
                 <hr className="w-14" />
-                <h2 className="text-[12px] uppercase tracking-[0.4em]">
+                <h2 className="text-[14px] uppercase tracking-[0.4em]">
                   Overview
                 </h2>
               </div>
 
               <animated.h1
                 style={headingProps}
-                className={`mb-6 text-[42px] leading-tight md:text-[56px] md-lg:text-[63px] lg:text-[84px]`}
+                className={`mb-6 text-[40px] leading-tight md:text-[52px] md-lg:text-[62px] lg:text-[70px]`}
               >
                 {words.length > 2 ? (
                   <>
@@ -295,7 +295,7 @@ const Page = () => {
         <div className="items-center px-[2.5%]">
           <animated.h1
             style={headingProps}
-            className="mt-[100px] text-black text-[35px] md:text-[42px] lg:text-[72px] mb-10"
+            className="mt-[100px] text-black text-[35px] md:text-[40px] lg:text-[62px] mb-10"
           >
             Project Gallery
           </animated.h1>

@@ -76,7 +76,7 @@ export default function BlogScroller({ blogs }: { blogs: Blog[] }) {
 
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto space-x-4 snap-x snap-mandatory no-scrollbar py-8 px-4 sm:px-12 scroll-smooth"
+        className="flex overflow-x-auto space-x-4 snap-x snap-mandatory no-scrollbar py-8 scroll-smooth"
       >
         {blogs.map((blog) => (
           <Link
