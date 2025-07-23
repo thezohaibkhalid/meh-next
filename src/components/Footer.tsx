@@ -117,6 +117,8 @@ export default function Footer() {
                   <p>contact@mbhstudioo.com</p>
                   <p>+92 303 7074418</p>
                   <p>+92 315 8860962</p>
+                  <p>+92 041 5210923</p>
+
                 </div>
               </div>
             </div>
