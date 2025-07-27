@@ -76,72 +76,67 @@ export default function Navbar() {
   ];
 
   return (
-    <>
-      <header className="gradient-nav fixed top-0 left-0 w-full z-50">
-        <nav className="flex items-center md-lg:h-[95px] py-[15px] lg:h-[95px] h-[93px] px-[2.5%] relative">
-          <div className="text-white hidden md:flex md:flex-1 md:justify-start">
-            <Link href="/projects">
+      <>
+        <header className="gradient-nav fixed top-0 left-0 w-full z-50">
+          <nav className="flex items-center md-lg:h-[95px] py-[15px] lg:h-[95px] h-[93px] px-[2.5%] relative">
+            <div className="text-white hidden md:flex md:flex-1 md:justify-start">
+              <Link href="/projects">
               <span className="relative inline-block cursor-pointer group">
                 <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
                   PROJECTS
                 </div>
                 <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right group-hover:origin-left"></div>
               </span>
-            </Link>
+              </Link>
 
-            <Link href="/contact">
+              <Link href="/contact">
               <span className="ml-8 relative inline-block cursor-pointer group">
                 <div className="relative z-10 tracking-wider leading-tight text-sm pb-1">
                   CONTACT
                 </div>
                 <div className="absolute right-0 bottom-0 h-[1px] w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right group-hover:origin-left"></div>
               </span>
-            </Link>
-          </div>
+              </Link>
+            </div>
 
-          <div className="hidden md-lg:flex-1 md-lg:flex md-lg:justify-start">
-            <Link href="/" className="text-white font-extrabold">
-              <div className="leading-none">
-                <h1 className="text-5xl tracking-widest">MBH</h1>
-                <p className="text-lg tracking-widest">STUDIOO</p>
+            <div className="hidden md-lg:flex-1"></div>
+
+            <Link
+                href="/"
+                className="text-gray-500  md-lg:text-5xl md-lg:font-extrabold text-4xl font-semibold  absolute-center"
+            >
+              <div className="lg:text-4xl  flex items-center  md:text-3xl  text-2xl font-medium text-white md-lg:pb-0 pb-6 pl-4 ">
+                MBH STUDIOO
               </div>
             </Link>
-          </div>
 
-          <div className="md-lg:hidden flex-1 flex justify-start">
-            <Link href="/" className="text-white font-semibold">
-              <div className="leading-none pb-6 pl-4">
-                <h1 className="text-3xl tracking-widest">MBH</h1>
-                <p className="text-medium tracking-widest">STUDIOO</p>
-              </div>
-            </Link>
-          </div>
+            <div className="md-lg:hidden flex-1"></div>
 
-          <div
-            id="nav-icon1"
-            className={`cursor-pointer ${isDropdownOpen ? "open" : ""}`}
-            onClick={toggleDropdown}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </nav>
-      </header>
-      {/* Mobile Dropdown Overlay */}
-      <div
-        className={`z-50 fixed inset-0 bg-[#b5aba1] text-white flex flex-col transition-transform duration-[1200ms] ease-in-out ${
-          isFirstOpen
-            ? "translate-y-full"
-            : isDropdownOpen
-            ? "translate-y-0"
-            : "-translate-y-full"
-        }`}
-      >
-        <div className="menu-content h-screen flex flex-col mt-40 items-start px-8">
-          <div className="w-full h-full pb-10 flex flex-col md:justify-between">
-            <div className="space-y-[11px] flex flex-col ">
-              {/* {navLinks.map((link, index) => (
+            <div
+                id="nav-icon1"
+                className={`cursor-pointer ${isDropdownOpen ? "open" : ""}`}
+                onClick={toggleDropdown}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </nav>
+        </header>
+        {/* Mobile Dropdown Overlay */}
+        <div
+            className={`z-50 fixed inset-0 bg-[#b5aba1] text-white flex flex-col transition-transform duration-[1200ms] ease-in-out ${
+                isFirstOpen
+                    ? "translate-y-full"
+                    : isDropdownOpen
+                        ? "translate-y-0"
+                        : "-translate-y-full"
+            }`}
+        >
+          <div className="menu-content h-screen flex flex-col mt-40 items-start px-8">
+            <div className="w-full h-full pb-10 flex flex-col md:justify-between">
+              <div className="space-y-[11px] flex flex-col ">
+                {/* {navLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.path}
@@ -156,53 +151,53 @@ export default function Navbar() {
                 </Link>
               ))} */}
 
-              {navLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.path}
-                  className="text-container relative "
-                >
-                  <div className="absolute w-full h-full flex text text-white lg:text-4xl md-lg:text-4xl text-[28px] select-none">
-                    {link.name}
-                  </div>
-                  <div className="absolute w-full h-full flex text lg:text-4xl md-lg:text-4xl text-white text-[28px] text-back select-none">
-                    {link.name}
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="flex justify-between w-full items-center">
-              <div className="mt-12 hidden md:block">
-                <div className="text-white text-[13px] font-semibold mb-4">
-                  Contact details
-                </div>
-                <p className="text-white text-[13px]">
-                  Email address —{" "}
-                  <span className="text-white">contact@mbhstudioo.com</span>
-                </p>
-              </div>
-              <div className="flex ms-auto mt-16">
-                {socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-14 h-14 flex items-center justify-center rounded-full bg-[#b5aba1] text-gray-700 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:bg-white hover:shadow-lg"
-                  >
-                    <div
-                      className={`text-3xl transition-all duration-300 ${link.color} ${link.shadow}`}
+                {navLinks.map((link, index) => (
+                    <Link
+                        key={index}
+                        href={link.path}
+                        className="text-container relative "
                     >
-                      {link.icon}
-                    </div>
-                  </a>
+                      <div className="absolute w-full h-full flex text text-white lg:text-4xl md-lg:text-4xl text-[28px] select-none">
+                        {link.name}
+                      </div>
+                      <div className="absolute w-full h-full flex text lg:text-4xl md-lg:text-4xl text-white text-[28px] text-back select-none">
+                        {link.name}
+                      </div>
+                    </Link>
                 ))}
+              </div>
+
+              <div className="flex justify-between w-full items-center">
+                <div className="mt-12 hidden md:block">
+                  <div className="text-white text-[13px] font-semibold mb-4">
+                    Contact details
+                  </div>
+                  <p className="text-white text-[13px]">
+                    Email address —{" "}
+                    <span className="text-white">contact@mbhstudioo.com</span>
+                  </p>
+                </div>
+                <div className="flex ms-auto mt-16">
+                  {socialLinks.map((link, index) => (
+                      <a
+                          key={index}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group w-14 h-14 flex items-center justify-center rounded-full bg-[#b5aba1] text-gray-700 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:bg-white hover:shadow-lg"
+                      >
+                        <div
+                            className={`text-3xl transition-all duration-300 ${link.color} ${link.shadow}`}
+                        >
+                          {link.icon}
+                        </div>
+                      </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </>
   );
 }
