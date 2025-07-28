@@ -49,12 +49,13 @@ const FeaturedProjects: React.FC = ({}) => {
     >
       <animated.h1
         style={animationProps}
-        className="text-black text-[35px] sm:[42px] md:[42px] md-lg:text-[50px] lg:text-[60px]"
+        // className="text-black text-[35px] sm:[42px] md:[42px] md-lg:text-[50px] lg:text-[60px]"
+        className="text-5xl text-black"
       >
         {pathname === "/projects" ? "Projects" : "Featured Projects"}
       </animated.h1>
 
-      <div className="flex justify-between my-5 border-b-2 border-gray-300 py-6">
+      <div className="flex justify-between my-5 borde border-gray-300 py-6">
         <div className="flex align-center flex-wrap gap-3">
           {filteredCategories.map((category) => (
             <Link

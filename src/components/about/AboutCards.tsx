@@ -42,7 +42,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
         </div>
         <div className="p-4 bg-transparent">
           {" "}
-          <p className="lg:text-[18px] md:text-[14px] text-[13px] text-gray-600 mt-2 text-justify">
+          <p className="lg:text-[16px] md:text-[12px] text-[11px] text-gray-600 mt-2 text-justify">
             {bio}
           </p>
         </div>
@@ -54,8 +54,8 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 const AboutCards = () => {
   const teamMembers = [
     {
-      name: "Bilal",
-      position: "Ownwer & Architect",
+      name: "Muhammad Bilal",
+      position: "Owner & Architect",
       bio: "Vytautas is a highly accomplished professional with over two decades of experience in the construction industry. As the former owner of the Bekshta Construction Group, he leveraged his expertise in finance and planning to drive innovation and success.",
       imageUrl: "/bilal-architect.png",
       linkedInUrl: "#",

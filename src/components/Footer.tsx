@@ -80,7 +80,7 @@ export default function Footer() {
                 MBH STUDIOO
               </h1>
             </Link>
-            <p className="text-sm leading-relaxed text-slate-500 max-w-xs">
+            <p className="text-sm leading-relaxed text-[#6b7280] max-w-xs">
               MBH Studioo is an architecture and interior design firm based in
               Faisalabad, offering a full range of services.
             </p>
@@ -91,7 +91,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-500 transition hover:text-slate-900 hover:scale-110"
+                  className="text-[#6b7280] transition hover:text-slate-900 hover:scale-110"
                   aria-label={name}
                 >
                   <Icon className="h-5 w-5" />
@@ -101,23 +101,23 @@ export default function Footer() {
           </div>
 
           <div className="space-y-6 text-sm">
-            <h3 className="text-xl  font-thin text-slate-700 tracking-tighter">
+            <h3 className="text-xl  font-thin  ">
               Get in Touch
             </h3>
             <div className="space-y-4">
               <div>
-                <address className="mt-1 text-slate-500  not-italic">
+                <address className="mt-1 text-[#6b7280]  not-italic">
                   Office No.291, Makkah Commercial Market
                   <br />
                   Chak 208 Rd, near Allied Bank, Faisalabad
                 </address>
               </div>
               <div>
-                <div className="mt-1 space-y-1 text-slate-500">
+                <div className="mt-1 space-y-1 text-[#6b7280]">
                   <p>contact@mbhstudioo.com</p>
                   <p>+92 303 7074418</p>
                   <p>+92 315 8860962</p>
-                  <p>+92 041 5210923</p>
+                  <p>+92 41 5210923</p>
 
                 </div>
               </div>
@@ -126,7 +126,7 @@ export default function Footer() {
 
           <div className="space-y-4">
             <h3 className="text-xl font-thin">Subscribe Now</h3>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-[#6b7280]">
               Get the latest news, articles, and resources, sent to your inbox
               weekly.
             </p>{" "}
@@ -187,7 +187,7 @@ export default function Footer() {
           </div>
         </div> */}
 
-        <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
+        <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-[#6b7280]">
           <span>© {new Date().getFullYear()} MBH Studioo. All rights reserved.</span>
         </div>
       </div>
