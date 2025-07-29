@@ -5,10 +5,10 @@ import React from "react";
 const AboutSection = () => {
   return (
       <section className="pt-20 mb-10 mt-10 w-full">
-        <div className=" w-full px-6 mx-auto flex flex-col lg:flex-row xl:flex-row gap-6 justify-between items-center">
+        <div className="w-full px-6 mx-auto flex flex-col lg:flex-row gap-6 justify-between items-center">
           {/* Text content */}
-          <div className="py-10 lg:w-1/2">
-            <h2 className="text-5xl mb-10 lg:mb-0 xl:mb-0 text-left">About</h2>
+          <div className="py-10 lg:w-2/5">
+            <h2 className="text-5xl mb-10 lg:mb-0 text-left">About</h2>
             <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10 mb-4 text-justify">
               MBH is vastly experienced at working across sectors – Residential,
               Hospitality, and Commercial, and across disciplines – Architecture
@@ -30,23 +30,26 @@ const AboutSection = () => {
             </Link>
           </div>
 
-          {/* Image content */}
-          <div className="lg:w-1/2">
-            <Image
-                src="/about_1_mobile.jpg"
-                alt="About MBH Studioo Mobile"
-                className="block md:hidden w-full h-auto object-cover transition-transform duration-1000 hover:scale-95"
-            />
-            <Image
-                src="/about_1_lg.png"
-                alt="About MBH Studioo PC"
-                className="hidden md:block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
-            />
-            <Image
-                src="/about_1_lg.png"
-                alt="About MBH Studioo PC"
-                className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
-            />
+          <div className="lg:w-3/5 w-full">
+            <div className="block md:hidden w-full relative aspect-[4/3] overflow-hidden">
+              <Image
+                  src="/about_1_mobile.jpg"
+                  alt="About MBH Studio Mobile"
+                  fill
+                  className="object-contain transition-transform duration-1000 hover:scale-95"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+
+            <div className="hidden md:block w-full relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
+              <Image
+                  src="/about_1_mobile.jpg"
+                  alt="About MBH Studio Desktop"
+                  fill
+                  className="object-contain transition-transform duration-1000 hover:scale-95"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
