@@ -5,9 +5,9 @@ import React from "react";
 const AboutSection = () => {
   return (
       <section className="pt-20 mb-10 mt-10 w-full">
-        <div className="w-full px-6 mx-auto flex flex-col lg:flex-row gap-6 justify-between items-center">
+        <div className="w-full px-[2.5%] mx-auto flex flex-col lg:flex-row gap-6 justify-between items-center">
           {/* Text content */}
-          <div className="py-10 lg:w-2/5">
+          <div className="py-10 lg:w-1/2">
             <h2 className="text-5xl mb-10 lg:mb-0 text-left">About</h2>
             <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10 mb-4 text-justify">
               MBH is vastly experienced at working across sectors – Residential,
@@ -30,11 +30,11 @@ const AboutSection = () => {
             </Link>
           </div>
 
-          <div className="lg:w-3/5 w-full">
+          <div className="lg:w-1/2 w-full">
             <div className="block md:hidden w-full relative aspect-[4/3] overflow-hidden">
               <Image
                   src="/about_1_mobile.jpg"
-                  alt="About MBH Studio Mobile"
+                  alt="About MBH Studioo Mobile"
                   fill
                   className="object-contain transition-transform duration-1000 hover:scale-95"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -44,7 +44,7 @@ const AboutSection = () => {
             <div className="hidden md:block w-full relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
               <Image
                   src="/about_1_mobile.jpg"
-                  alt="About MBH Studio Desktop"
+                  alt="About MBH Studioo Desktop"
                   fill
                   className="object-contain transition-transform duration-1000 hover:scale-95"
                   sizes="(max-width: 1024px) 100vw, 50vw"

@@ -32,7 +32,7 @@ export default function ScheduleCallSection() {
 
           <div className="pl-2 border-l-4 border-white/30">
             <p className="text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed bg-black/40 backdrop-blur-3xl p-4 rounded-lg shadow-lg">
-              MBH Studio is an architecture and interior design company based in
+              MBH STUDIOO is an architecture and interior design company based in
               Faisalabad. Our services include Architecture, Engineering,
               Construction, Landscape, Urban Planning, Town Planning, 3D
               Modeling, Exterior Design, Animation, and Graphics Design.

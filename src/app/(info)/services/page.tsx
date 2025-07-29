@@ -87,22 +87,25 @@ const page = () => {
   return (
     <div>
       <PrimaryHero
-        title="SERVICES"
+        title="WHAT WE DO"
         subtitle="EXPERTISE"
         imageUrl="/contact.jpeg"
       />
       <Navbar />
       <div className="px-[2.6%] py-1">
-        {/* <h1 className="mt-[100px] mb-6 text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[72px]">
+        <h1 className="lg:mt-[100px] md:mt-[50px] mt-[25px] mb-6 text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[60px]">
           Core Services
-        </h1> */}
+        </h1>
 
-        {services.map((service, index) => (
+        {services.map((service, index) =>
+            (
+
           <div
             key={index}
-            className="grid lg:grid-cols-6 md-lg:grid-cols-6 grid-cols-1 gap-10 lg:gap-16 p-6 bg-white border-t border-gray-300 border-opacity-50 pt-8 items-start"
+            // className={`grid lg:grid-cols-6 md-lg:grid-cols-6 grid-cols-1 gap-10 lg:gap-16 p-6 bg-white ${Number(service.number) !== 1 ? "border-t border-gray-300 border-opacity-50" : "border-t border-gray-300 border-opacity-50"} pt-8 items-start`}
+            className={`grid lg:grid-cols-6 md-lg:grid-cols-6 grid-cols-1 gap-10 lg:gap-16 p-6 bg-white border-t border-gray-300 border-opacity-50 pt-8 items-start`}
+
           >
-            {/* Number Section */}
             <div className="lg:col-span-1 md-lg:col-span-1 text-left lg:text-[21px] font-thin text-black">
               {service.number}
             </div>
@@ -132,13 +135,13 @@ const page = () => {
             </div>
 
             {/* Image Section */}
-            {/* <div className="lg:col-span-2 md-lg:col-span-2">
-            <img
-              src={service.imageUrl}
-              alt={service.title}
-              className="w-full lg:max-w-[562px] lg:h-[240px] object-cover shadow-lg hover:scale-95 duration-300 ease-linear"
-            />
-          </div> */}
+          {/*  <div className="lg:col-span-2 md-lg:col-span-2">*/}
+          {/*  <img*/}
+          {/*    src={service.imageUrl}*/}
+          {/*    alt={service.title}*/}
+          {/*    className="w-full lg:max-w-[562px] lg:h-[240px] object-cover shadow-lg hover:scale-95 duration-300 ease-linear"*/}
+          {/*  />*/}
+          {/*</div> */}
           </div>
         ))}
       </div>

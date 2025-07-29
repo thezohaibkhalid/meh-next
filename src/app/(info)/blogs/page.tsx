@@ -6,10 +6,10 @@ const page = () => {
   return (
     <div>
         <PrimaryHero
-            title="BLOGS"
+            title="FROM THE TEAM"
         subtitle="INSIGHTS"
-        // imageUrl="https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/64388bfcbb62bba79cd12140_07-Millennium%20-%20Villa.jpg"
-        imageUrl="/contact.jpeg"
+        imageUrl="https://cdn.prod.website-files.com/63c9df6b055c091e80c5d708/64388bfcbb62bba79cd12140_07-Millennium%20-%20Villa.jpg"
+        // imageUrl="/contact.jpeg"
         />
         <Navbar />
         <NewsCategory/>

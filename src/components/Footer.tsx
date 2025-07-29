@@ -81,7 +81,7 @@ export default function Footer() {
               </h1>
             </Link>
             <p className="text-sm leading-relaxed text-[#6b7280] max-w-xs">
-              MBH Studioo is an architecture and interior design firm based in
+              MBH STUDIOO is an architecture and interior design firm based in
               Faisalabad, offering a full range of services.
             </p>
             <div className="flex space-x-4 pt-2">
@@ -109,7 +109,7 @@ export default function Footer() {
                 <address className="mt-1 text-[#6b7280]  not-italic">
                   Office No.291, Makkah Commercial Market
                   <br />
-                  Chak 208 Rd, near Allied Bank, Faisalabad
+                   208 Chak Rd, near Allied Bank, Faisalabad
                 </address>
               </div>
               <div>
@@ -188,7 +188,7 @@ export default function Footer() {
         </div> */}
 
         <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-[#6b7280]">
-          <span>© {new Date().getFullYear()} MBH Studioo. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} MBH STUDIOO. All rights reserved.</span>
         </div>
       </div>
     </footer>

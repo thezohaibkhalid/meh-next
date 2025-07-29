@@ -1,5 +1,6 @@
 // app/components/NewsCategory.tsx
 import ShowNews from "./ShowNews";
+import React from "react";
 
 interface Blog {
   _id: string;
@@ -42,12 +43,12 @@ export default async function NewsCategory({
   }
 
   return (
-    <div className="items-center  px-[2.5%]">
-      {/* <h1 className="text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[72px]">
+    <div className="items-center px-[2.5%]">
+      <h1 className="lg:mt-[100px] md:mt-[50px] mt-[25px]   text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[60px]">
         Latest Blogs
-      </h1> */}
+      </h1>
 
-      <div className="pt-10">
+      <div className="pt-6">
         <ShowNews blogs={limit ? blogs.slice(0, limit) : blogs} />
       </div>
     </div>

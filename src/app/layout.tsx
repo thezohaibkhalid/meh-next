@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} ${playfairDisplay.variable} antialiased`}
+          className={`${nunitoSans.variable} ${playfairDisplay.variable} antialiased`}
       >
         <ScrollToTop />
         {children}
