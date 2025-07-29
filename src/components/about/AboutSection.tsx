@@ -32,17 +32,17 @@ const AboutSection = () => {
 
           {/* Image content */}
           <div className="lg:w-1/2">
-            <img
+            <Image
                 src="/about_1_mobile.jpg"
                 alt="About MBH Studioo Mobile"
                 className="block md:hidden w-full h-auto object-cover transition-transform duration-1000 hover:scale-95"
             />
-            <img
+            <Image
                 src="/about_1_lg.png"
                 alt="About MBH Studioo PC"
                 className="hidden md:block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
             />
-            <img
+            <Image
                 src="/about_1_lg.png"
                 alt="About MBH Studioo PC"
                 className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"

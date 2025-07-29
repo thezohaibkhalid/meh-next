@@ -1,9 +1,7 @@
 import PrimaryHero from "@/components/common/PrimraryHero";
-import Link from "next/link";
 import Navbar from "@/components/navbar/Navbar";
 import AboutCards from "@/components/about/AboutCards";
 import Logo from "@/components/Logos/AdSection";
-import Image from "next/image";
 import AboutSection from "@/components/about/AboutSection";
 export default function AboutPage() {
   return (
