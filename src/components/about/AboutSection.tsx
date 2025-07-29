@@ -1,15 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
+
 const AboutSection = () => {
   return (
-      <section className="lg:pt-20 xl:pt-20 md:pt-2 sm:pt-2 mb-10 mt-10">
-        <div className="w-full px-6 grid grid-cols-1 lg:grid-cols-[2fr_2.5fr] xl:grid-cols-[2fr_2.5fr] gap-16">
-          <div className="h-full py-10">
-            <h2 className="text-5xl mb-10 lg:mb-0 xl:mb-0 2xl:mb-0 text-left">
-              About
-            </h2>
-            <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10  mb-4 text-justify lg:pr-10 md:pr-8 pr-0">
+      <section className="pt-20 mb-10 mt-10 w-full">
+        <div className=" w-full px-6 mx-auto flex flex-col lg:flex-row xl:flex-row gap-6 justify-between items-center">
+          {/* Text content */}
+          <div className="py-10 lg:w-1/2">
+            <h2 className="text-5xl mb-10 lg:mb-0 xl:mb-0 text-left">About</h2>
+            <p className="text-[#0F0F0FA6] lg:text-[16px] md:text-[16px] text-[13px] mt-10 mb-4 text-justify">
               MBH is vastly experienced at working across sectors – Residential,
               Hospitality, and Commercial, and across disciplines – Architecture
               and Interior Design. We offer a multifaceted, entirely bespoke
@@ -30,21 +30,23 @@ const AboutSection = () => {
             </Link>
           </div>
 
-          <div className="flex justify-end">
-            <Image
-                width={500}
-                height={400}
+          {/* Image content */}
+          <div className="lg:w-1/2">
+            <img
                 src="/about_1_mobile.jpg"
                 alt="About MBH Studioo Mobile"
-                className="block w-full h-auto md:h-[500px] object-cover transition-transform duration-1000 hover:scale-95"
+                className="block md:hidden w-full h-auto object-cover transition-transform duration-1000 hover:scale-95"
             />
-            {/* <Image
-              width={500}
-              height={400}
-              src="/about_1_PC.jpg"
-              alt="About MBH Studioo PC"
-              className="hidden lg:block w-full h-auto md:h-[500px] object-cover transition-transform duration-1000 hover:scale-95"
-            /> */}
+            <img
+                src="/about_1_lg.png"
+                alt="About MBH Studioo PC"
+                className="hidden md:block lg:hidden w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
+            />
+            <img
+                src="/about_1_lg.png"
+                alt="About MBH Studioo PC"
+                className="hidden lg:block w-full h-auto md:h-[400px] object-cover transition-transform duration-1000 hover:scale-95"
+            />
           </div>
         </div>
       </section>

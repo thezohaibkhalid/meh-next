@@ -7,8 +7,7 @@ import InteractiveSection from "@/InteractiveSection/InteractiveSection";
 import LatestInsights from "@/components/Blogs/LatestInsights";
 import ScheduleCallSection from "@/components/ScheduleCallSection";
 import Loader from "@/components/Loader";
-import Image from "next/image";
-import Link from "next/link";
+
 import AboutSection from "@/components/about/AboutSection";
 export default function page() {
   return (
