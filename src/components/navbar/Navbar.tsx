@@ -105,7 +105,7 @@ export default function Navbar() {
                 href="/"
                 className="text-gray-500  md-lg:text-5xl md-lg:font-extrabold text-4xl font-semibold  absolute-center"
             >
-              <div className="lg:text-4xl  flex items-center  md:text-3xl  text-2xl font-medium text-white md-lg:pb-0 pb-6 pl-4 ">
+              <div className="lg:text-4xl pt-4.5   md:text-3xl  text-2xl font-medium text-white md-lg:pb-0 pb-6 pl-4 tracking-tighter">
                 MBH STUDIOO
               </div>
             </Link>
@@ -114,7 +114,7 @@ export default function Navbar() {
 
             <div
                 id="nav-icon1"
-                className={`cursor-pointer ${isDropdownOpen ? "open" : ""}`}
+                className={`cursor-pointer marginTop ${isDropdownOpen ? "open" : ""}`}
                 onClick={toggleDropdown}
             >
               <span></span>

@@ -6,6 +6,7 @@
   top: 0;
 }
 
+
 #nav-icon1,
 #nav-icon2,
 #nav-icon3,
@@ -13,7 +14,7 @@
   width: 30px;
   height: 50px;
   position: relative;
-  margin: 50px auto;
+  margin: 20px 0 0 0 ;
   transform: rotate(0deg);
   transition: 0.7s ease-in-out;
   cursor: pointer;
@@ -80,4 +81,8 @@
 .text-container:hover .text-back {
   transform: translateY(0);
   opacity: 1;
+}
+
+.marginTop {
+  margin-top:7rem; /* Adjust as needed */
 }

@@ -94,7 +94,7 @@ const page = () => {
       <Navbar />
       <div className="px-[2.6%] py-1">
         <h1 className="lg:mt-[100px] md:mt-[50px] mt-[25px] mb-6 text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[60px]">
-          Core Services
+           Services
         </h1>
 
         {services.map((service, index) =>

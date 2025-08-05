@@ -115,8 +115,8 @@ export default function Footer() {
               <div>
                 <div className="mt-1 space-y-1 text-[#6b7280]">
                   <p>contact@mbhstudioo.com</p>
-                  <p>+92 303 7074418</p>
                   <p>+92 315 8860962</p>
+                  <p>+92 303 7074418</p>
                   <p>+92 41 5210923</p>
 
                 </div>

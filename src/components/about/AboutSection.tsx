@@ -19,7 +19,7 @@ const AboutSection = () => {
               particular on new-build projects.
             </p>
             <Link
-                href="/projects"
+                href="/about"
                 className="relative inline-block cursor-pointer group text-xs tracking-[4px] mt-8"
             >
               <div className="relative z-10 tracking-[7px] leading-tight text-[11px] border-gray-300">

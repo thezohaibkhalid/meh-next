@@ -45,7 +45,7 @@ export default async function NewsCategory({
   return (
     <div className="items-center px-[2.5%]">
       <h1 className="lg:mt-[100px] md:mt-[50px] mt-[25px]   text-black text-[35px] sm:text-[42px] md:text-[42px] md-lg:text-[50px] lg:text-[60px]">
-        Latest Blogs
+         Blogs
       </h1>
 
       <div className="pt-6">
