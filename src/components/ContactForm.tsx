@@ -11,9 +11,15 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
 
   const validateForm = (form: HTMLFormElement) => {
-    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value.trim() || "";
-    const phone = (form.elements.namedItem("phone") as HTMLInputElement)?.value.trim() || "";
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value.trim() || "";
+    const name =
+      (form.elements.namedItem("name") as HTMLInputElement)?.value.trim() || "";
+    const phone =
+      (form.elements.namedItem("phone") as HTMLInputElement)?.value.trim() ||
+      "";
+    const message =
+      (
+        form.elements.namedItem("message") as HTMLTextAreaElement
+      )?.value.trim() || "";
 
     const newErrors: Record<string, string> = {};
 
@@ -46,10 +52,19 @@ export default function ContactForm() {
     }
 
     const formData = {
-      name: ((form.elements.namedItem("name") as HTMLInputElement)?.value.trim()) || "",
-      email: ((form.elements.namedItem("email") as HTMLInputElement)?.value.trim()) || "",
-      phoneNumber: ((form.elements.namedItem("phone") as HTMLInputElement)?.value.trim()) || "",
-      message: ((form.elements.namedItem("message") as HTMLTextAreaElement)?.value.trim()) || "",
+      name:
+        (form.elements.namedItem("name") as HTMLInputElement)?.value.trim() ||
+        "",
+      email:
+        (form.elements.namedItem("email") as HTMLInputElement)?.value.trim() ||
+        "",
+      phoneNumber:
+        (form.elements.namedItem("phone") as HTMLInputElement)?.value.trim() ||
+        "",
+      message:
+        (
+          form.elements.namedItem("message") as HTMLTextAreaElement
+        )?.value.trim() || "",
     };
 
     setLoading(true);
@@ -81,10 +96,10 @@ export default function ContactForm() {
     <div className="w-full bg-[#F4F2F1] px-[2.5%] py-16">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="mb-4 lg:text-[72px] md-lg:text-[52px] md:text-[45px] text-[42px]">
-          Lets Connect
+          Let's Connect
         </h1>
         <p className="text-lg text-gray-600 max-w-xl mx-auto">
-          Have a project in mind or a question? Fill out the form, and lets
+          Have a project in mind or a question? Fill out the form, and let's
           talk.
         </p>
       </div>
